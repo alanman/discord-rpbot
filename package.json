@@ -1,15 +1,15 @@
 {
 	"name": "discord-rpbot",
-	"version": "2.11.0",
+	"version": "2.11.1",
 	"description": "A Discord bot that contains commands useful for text roleplaying",
 	"license": "MIT",
-	"author": "Schuyler Cebulskie <Gawdl3y@gawdl3y.com> (https://gawdl3y.com/)",
+	"author": "Schuyler Cebulskie with fixes by alanman",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Gawdl3y/discord-rpbot.git"
+		"url": "https://github.com/alanman/discord-rpbot.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Gawdl3y/discord-rpbot/issues"
+		"url": "https://github.com/alanman/discord-rpbot/issues"
     },
 	"keywords": [
 		"discord",
