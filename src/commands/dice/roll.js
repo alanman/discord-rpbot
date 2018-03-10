@@ -58,6 +58,8 @@ export default class RollDiceCommand extends Command {
 				if(matches[2] === '>' || matches[2] === '<') {
 					const success = matches[2] === '>' ? rollResult.roll >= target : rollResult.roll < target;
 					const diceList = this.buildDiceList(rollResult, totalDice);
+					var rollSorted = rollResult;
+					rollSorted.sort(function(a, b){return b - a});
 					response = oneLine`
 						${message.author} has **${success ? 'succeeded' : 'failed'}**.
 						(Rolled ${rollResult.roll}, ${!success ? 'not' : ''} ${matches[2] === '>' ? 'greater' : 'less'} than ${target}${diceList ? `;   ${diceList}` : ''})
@@ -67,6 +69,8 @@ export default class RollDiceCommand extends Command {
 				} else if(matches[2] === '>>' || matches[2] === '<<') {
 					if(rollResult.diceRaw.length !== 1) return { plain: `${message.author} tried to count successes with multiple dice expressions.` };
 					const successes = rollResult.diceRaw[0].reduce((prev, die) => prev + (matches[2] === '>>' ? die >= target : die < target), 0);
+					var rollSorted = rollResult;
+					rollSorted.sort(function(a, b){return b - a});
 					response = oneLine`
 						${message.author} has **${successes > 0 ? `succeeded ${successes} time${successes !== 1 ? 's' : ''}` : `failed`}**.
 						${rollResult.diceRaw[0].length > 1 && rollResult.diceRaw[0].length <= 100 ? `(${rollResult.diceRaw[0].join(',   ')})` : ''}
